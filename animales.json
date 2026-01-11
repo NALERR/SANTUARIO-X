@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "nombre": "Luna",
+        "especie": "Perro",
+        "estado": "Sano",
+        "cuidadores": "Juan Pérez"
+    },
+    {
+        "id": 2,
+        "nombre": "Max",
+        "especie": "Gato",
+        "estado": "En observación",
+        "cuidadores": "Ana López"
+    },
+    {
+        "id": 3,
+        "nombre": "Federico",
+        "especie": "Loro",
+        "estado": "En observación",
+        "cuidadores": "Fabio hernandez"
+    },
+    {
+        "id": 4,
+        "nombre": "pablo",
+        "especie": "Gecko",
+        "estado": "En observación",
+        "cuidadores": "Juan Pérez"
+    },
+    {
+        "id": 5,
+        "nombre": "caroline",
+        "especie": "Tarántula",
+        "estado": "En observación",
+        "cuidadores": "Juan Pérez"
+    },
+    {
+        "id": 6,
+        "nombre": "fred",
+        "especie": "Gato",
+        "estado": "En observación",
+        "cuidadores": "Ana López"
+    }
+]
