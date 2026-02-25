@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTION DE ANIMALES</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="shortcut icon" href="img/logoSantuario.png" type="image/x-icon" />
+
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-md py-2 bg-light border-bottom">
+            <div class="container">
+                <a href="#"><img src="img/logoSantuario.png" alt="logo del santuario" height="60" width="50" /></a>
+                <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                    <span class="fs-4 p-1">SANTUARIO X</span>
+                </a>
+
+                <ul class="nav me-auto">
+                    <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">GESTION
+                            DE ANIMALES</a>
+                    </li>
+                    <li class="nav-item"><a href="gestionvoluntarios.html" class="nav-link link-dark px-2 active"
+                            aria-current="page">GESTION
+                            DE VOLUNTARIOS</a>
+                    </li>
+                </ul>
+
+                <div class="col-md-3 text-end">
+                    <a href="landingpage.html" class="btn btn-outline-primary me-2">CERRAR SESION</a>
+                </div>
+            </div>
+        </nav>
+        <section class="opcionesBusqueda">
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">VER LISTADO DE
+                    ANIMALES</button>
+                <button id="btnMostrarAlta" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    AÑADIR UN ANIMAL NUEVO
+                </button>
+            </div>
+
+        </section>
+    </header>
+
+    <main class="container">
+
+        <section class="respuestaContenido">
+            <table id="tablaAnimales" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>ESPECIE</th>
+                        <th>EDAD</th>
+                        <th>ESTADO</th>
+                        <th>VOLUNTARIO ASIGNADO</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-6 col-md-3 mb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">INGRESAR ANIMAL NUEVO</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="altaAnimalForm">
+                        <div class="mb-3">
+                            <label for="nombreAnimal" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreAnimal" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edadAnimal" class="form-label">Edad:</label>
+                            <input type="number" class="form-control" id="edadAnimal" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="especieAnimal" class="form-label">Especie:</label>
+                            <select class="form-select" id="especieAnimal">
+                                <option value="">Selecciona una especie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="estadoAnimal" class="form-label">Estado de salud:</label>
+                            <select class="form-select" id="estadoAnimal">
+                                <option value="disponible_para_adopcion">Disponible para adopcion</option>
+                                <option value="ok">Buen estado</option>
+                                <option value="en_tratamiento">En tratamiento</option>
+                                <option value="aislamiento">En cuarentena</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="cuidadoresAnimal" class="form-label">Voluntario Asignado:</label>
+                            <select class="form-select" id="cuidadoresAnimal">
+                                <option value="">Selecciona un voluntario</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdrop2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-6 col-md-3 mb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdrop2Label">EDITAR INFORMACION DE UN ANIMAL</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarAnimal">
+                        <div class="mb-3">
+                            <input type="hidden" id="editId">
+                            <label for="editNombre" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="editNombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEdad" class="form-label">Edad:</label>
+                            <input type="number" class="form-control" id="editEdad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEspecie" class="form-label">Especie:</label>
+                            <select class="form-select" id="editEspecie">
+                                <option value="">Selecciona una especie</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editEstado" class="form-label">Estado de salud:</label>
+                            <select class="form-select" id="editEstado">
+                                <option value="disponible_para_adopcion">Disponible para adopcion</option>
+                                <option value="ok">Buen estado</option>
+                                <option value="en_tratamiento">En tratamiento</option>
+                                <option value="aislamiento">En cuarentena</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="editVoluntario" class="form-label">Voluntario Asignado:</label>
+                            <select class="form-select" id="editVoluntario">
+                                <option value="">Selecciona un voluntario</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto" class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="#"><img src="img/logoSantuario.png" alt="logo del santuario" height="60" width="50" /></a>
+                <h5>SANTUARIO</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <p>Siguenos en redes:</p> <a href="#"><img src="img/instagram.png" alt="logo instagram"
+                                height="40" width="40" /></a>
+                        <a href="#"><img src="img/facebook.png" alt="logo instagram" height="40" width="40" /></a>
+                        <a href="#"><img src="img/xtwitter.png" alt="logo instagram" height="40" width="40" /></a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <p>Santuario x, Castellón de la Plana, España.</p>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <p>Email: santuariox@yimail.com</p>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <p>Lineas de contacto: +34 XXXXXXXXX</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="animales1.js"></script>
+</body>
+
+</html>

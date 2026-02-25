@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GESTION DE VOLUNTARIOS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="img/logoSantuario.png" type="image/x-icon" />
+
+</head>
+
+<body>
+    <header>
+
+        <nav class="navbar navbar-expand-md py-2 bg-light border-bottom">
+            <div class="container">
+                <a href="#"><img src="img/logoSantuario.png" alt="logo del santuario" height="60" width="50" /></a>
+                <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+                    <span class="fs-4 p-1">SANTUARIO X</span>
+                </a>
+
+                <ul class="nav me-auto">
+                    <li class="nav-item"><a href="gestionanimales.html" class="nav-link link-dark px-2 active"
+                            aria-current="page">GESTION
+                            DE ANIMALES</a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link link-dark px-2 active" aria-current="page">GESTION
+                            DE VOLUNTARIOS</a>
+                    </li>
+                </ul>
+
+                <div class="col-md-3 text-end">
+                    <a href="landingpage.html" class="btn btn-outline-primary me-2">CERRAR SESION</a>
+                </div>
+            </div>
+        </nav>
+        <section class="opcionesBusqueda">
+            <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home"
+                    type="button" role="tab" aria-controls="nav-home" aria-selected="true">VER LISTADO DE
+                    VOLUNTARIOS</button>
+                <button id="btnMostrarAlta" type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop">
+                    AÑADIR UN VOLUNTARIO NUEVO
+                </button>
+            </div>
+
+        </section>
+    </header>
+
+    <main class="container">
+
+        <section class="respuestaContenido">
+            <table id="tablaVoluntarios" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>NOMBRE</th>
+                        <th>TELEFONO</th>
+                        <th>ANIMALES ASIGNADOS</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-6 col-md-3 mb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">INGRESAR VOLUNTARIO NUEVO</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="altaVoluntarioForm">
+                        <div class="mb-3">
+                            <label for="nombreVoluntario" class="form-label">Nombre:</label>
+                            <input type="text" class="form-control" id="nombreVoluntario" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefonoVoluntario" class="form-label">Telefono:</label>
+                            <input type="text" class="form-control" id="telefonoVoluntario" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdrop2Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content col-6 col-md-3 mb-4">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdrop2Label">EDITAR INFORMACION DE UN VOLUNTARIO</h5>
+
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="formEditarVoluntario">
+                        <input type="hidden" id="editId">
+                        <label for="nombreVoluntario" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="editNombre" required>
+
+                        <div class="mb-3">
+                            <label for="editTelefono" class="form-label">Telefono:</label>
+                            <input type="text" class="form-control" id="editTelefono" required>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="contacto" class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <div class="col-6 col-md-3 mb-4">
+                <a href="#"><img src="img/logoSantuario.png" alt="logo del santuario" height="60" width="50" /></a>
+                <h5>SANTUARIO</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <p>Siguenos en redes:</p> <a href="#"><img src="img/instagram.png" alt="logo instagram"
+                                height="40" width="40" /></a>
+                        <a href="#"><img src="img/facebook.png" alt="logo instagram" height="40" width="40" /></a>
+                        <a href="#"><img src="img/xtwitter.png" alt="logo instagram" height="40" width="40" /></a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <p>Santuario x, Castellón de la Plana, España.</p>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <p>Email: santuariox@yimail.com</p>
+                    </li>
+
+                    <li class="nav-item mb-2">
+                        <p>Lineas de contacto: +34 XXXXXXXXX</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="voluntarios1.js"></script>
+</body>
+
+</html>
